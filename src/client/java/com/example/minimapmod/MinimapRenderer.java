@@ -20,4 +20,9 @@ public class MinimapRenderer implements HudRenderCallback {
         client.getTextureManager().bindTexture(MINIMAP_TEXTURE);
         DrawableHelper.drawTexture(matrices, x, y, 0, 0, 64, 64, 64, 64);
     }
+
+    // ✅ Register with the game
+    public static void init() {
+        HudRenderCallback.EVENT.register(new MinimapRenderer());
+    }
 }
