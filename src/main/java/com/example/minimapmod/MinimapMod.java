@@ -5,8 +5,8 @@ import net.fabricmc.api.ModInitializer;
 public class MinimapMod implements ModInitializer {
     @Override
     public void onInitialize() {
-        // Server-side initializer (no client-only code here)
-        System.out.println("MinimapMod initialized");
+        // Server-side code only (no MinecraftClient, no textures, no HudRenderCallback)
+        System.out.println("MinimapMod server initialized.");
     }
 }
 
