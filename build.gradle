@@ -1,0 +1,32 @@
+plugins {
+    id 'fabric-loom' version '1.3.8'
+    id 'maven-publish'
+}
+
+group = 'com.example'
+version = '1.0.0'
+
+repositories {
+    maven {
+        name = "Fabric"
+        url = "https://maven.fabricmc.net/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    // Minecraft version
+    minecraft "com.mojang:minecraft:1.21.4"
+
+    // Yarn mappings
+    mappings "net.fabricmc:yarn:1.21.4+build.5:v2"
+
+    // Loom will remap the Fabric API to match the mappings above
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.111.0+1.21.4"
+}
+loom {
+    splitEnvironmentSourceSets()
+}
+
+
+
