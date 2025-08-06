@@ -5,28 +5,35 @@ plugins {
 
 group = 'com.example'
 version = '1.0.0'
+archivesBaseName = 'minimapmod'
 
 repositories {
-    maven {
-        name = "Fabric"
-        url = "https://maven.fabricmc.net/"
-    }
+    maven { url = 'https://maven.fabricmc.net/' }
+    maven { url = 'https://maven.architectury.dev/' }
     mavenCentral()
 }
 
 dependencies {
-    // Minecraft version
+    // Minecraft & Fabric API
     minecraft "com.mojang:minecraft:1.21.4"
-
-    // Yarn mappings
-    mappings "net.fabricmc:yarn:1.21.4+build.5:v2"
-
-    // Loom will remap the Fabric API to match the mappings above
-    modImplementation "net.fabricmc.fabric-api:fabric-api:0.111.0+1.21.4"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:0.16.14"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.96.7+1.21.4"
 }
+
 loom {
     splitEnvironmentSourceSets()
+
+    runs {
+        client {
+            client()
+            setConfigName("Fabric Client")
+            ideConfigGenerated(true)
+            runDir("run")
+        }
+    }
 }
 
-
-
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
