@@ -31,3 +31,5 @@ jobs:
         with:
           name: FabricMinimapMod
           path: build/libs/*.jar
+
+
