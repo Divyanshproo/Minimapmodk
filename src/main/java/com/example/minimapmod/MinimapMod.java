@@ -1,10 +1,12 @@
+// MinimapMod.java
 package com.example.minimapmod;
 
-import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.ModInitializer;
 
-public class MinimapMod implements ClientModInitializer {
+public class MinimapMod implements ModInitializer {
     @Override
-    public void onInitializeClient() {
-        MinimapRenderer.init(); // Hook into HUD render event
+    public void onInitialize() {
+        // No client-side code here
+        System.out.println("MinimapMod (server/init) loaded");
     }
 }
