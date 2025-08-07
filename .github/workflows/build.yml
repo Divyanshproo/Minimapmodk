@@ -2,9 +2,9 @@ name: Build Fabric Mod
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -12,22 +12,22 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4  # ✅ UPDATED
+      uses: actions/checkout@v3
 
-    - name: Set up Java
-      uses: actions/setup-java@v4  # ✅ UPDATED
+    - name: Set up JDK 21
+      uses: actions/setup-java@v3
       with:
-        distribution: 'temurin'
-        java-version: 17
+        distribution: temurin
+        java-version: 21
 
-    - name: Grant execute permission to Gradlew
+    - name: Make gradlew executable
       run: chmod +x ./gradlew
 
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Upload built jar
-      uses: actions/upload-artifact@v4  # ✅ UPDATED
+    - name: Upload mod .jar file
+      uses: actions/upload-artifact@v3
       with:
-        name: MinimapMod-Jar
+        name: minimapmod-jar
         path: build/libs/*.jar
