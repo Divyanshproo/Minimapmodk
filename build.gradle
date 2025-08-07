@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.5.9'
+    id 'fabric-loom' version '1.6.6'
     id 'maven-publish'
 }
 
@@ -38,6 +38,7 @@ loom {
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
+
 
 
 
