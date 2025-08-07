@@ -30,6 +30,7 @@ loom {
             setConfigName("Fabric Client")
             ideConfigGenerated(true)
             runDir("run")
+            environment("fabric.environment", "client") // ✅ THIS LINE
         }
     }
 }
@@ -37,4 +38,5 @@ loom {
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
+
 
