@@ -34,19 +34,18 @@ loom {
     }
 }
 
+// ✅ Fix for client-only classes like MinecraftClient, KeyBinding, etc.
+sourceSets {
+    client {
+        java {
+            srcDirs = ['src/client/java']
+        }
+
+        compileClasspath += sourceSets.main.output + configurations.compileClasspath
+        runtimeClasspath += sourceSets.main.output + configurations.runtimeClasspath
+    }
+}
+
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
